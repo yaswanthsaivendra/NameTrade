@@ -1,7 +1,6 @@
 import { View, Text, Image, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import Slider from '@/components/Slider';
-import { LinearGradient } from 'expo-linear-gradient';
 import colors from '@/constants/colors';
 
 // Mock data for the carousel
@@ -19,6 +18,13 @@ const DOMAIN_DATA = [
     domain: 'crypto.io',
     price: '$2,499',
     owner: 'Jane Smith'
+  },
+  {
+    id: 3,
+    type: 'Domain of the Month',
+    domain: 'example.com',
+    price: '$1,999',
+    owner: 'John Doe'
   },
   // Add more items as needed
 ];
@@ -46,40 +52,36 @@ export default function HomeScreen() {
 
 
 
-
       {/* Buy/Sell Section */}
       <View className="flex-row justify-center gap-8">
-        <TouchableOpacity
-          onPress={() => {/* Handle buy press */ }}
-        >
-          <LinearGradient
-            colors={[ '#42DBF0', '#FF3186']}
-            className="px-8 py-4 rounded-xl flex-row items-center"
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
+        <TouchableOpacity 
+            className="px-10 py-5 rounded-2xl flex-row items-center bg-primary/10 border-l-4 border-primary"
             style={{
-              shadowColor: colors.primary,
-              shadowOffset: { width: 0, height: 2 },
-              shadowOpacity: 0.25,
-              shadowRadius: 3.84,
-              elevation: 5,
-              borderRadius: 10,
+                shadowColor: colors.primary,
+                shadowOffset: { width: 4, height: 4 },
+                shadowOpacity: 0.2,
+                shadowRadius: 8,
             }}
-          >
-            <AntDesign name="shoppingcart" size={24} color="black" />
-            <Text className="text-black font-semibold ml-2">Buy</Text>
-          </LinearGradient>
-
+        >
+            <AntDesign name="shoppingcart" size={24} color={colors.primary} />
+            <Text className="text-primary font-bold text-lg ml-3">Buy</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          className="bg-gray-800 px-8 py-4 rounded-xl flex-row items-center"
-          onPress={() => {/* Handle sell press */ }}
+        <TouchableOpacity 
+            className="px-10 py-5 rounded-2xl flex-row items-center bg-tertiary/10 border-l-4 border-tertiary"
+            style={{
+                shadowColor: colors.tertiary,
+                shadowOffset: { width: 4, height: 4 },
+                shadowOpacity: 0.2,
+                shadowRadius: 8,
+            }}
         >
-          <AntDesign name="tag" size={24} color="white" />
-          <Text className="text-white font-semibold ml-2">Sell</Text>
+            <AntDesign name="tag" size={24} color={colors.tertiary} />
+            <Text className="text-tertiary font-bold text-lg ml-3">Sell</Text>
         </TouchableOpacity>
       </View>
+
+      
     </View>
   );
 }

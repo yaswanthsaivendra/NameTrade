@@ -1,13 +1,13 @@
 import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { AntDesign, Feather } from '@expo/vector-icons';
+import { AntDesign, Entypo, Feather } from '@expo/vector-icons';
 
 const TabBar = ({ state, descriptors, navigation }: { state: any, descriptors: any, navigation: any }) => {
     const icons = {
-        index : (props: any) => <AntDesign size={22} {...props} name='home' />,
-        explore : (props: any) => <Feather size={22} {...props} name='compass' />,
-        create : (props: any) => <AntDesign size={22} {...props} name='pluscircleo' />,
-        profile : (props: any) => <AntDesign size={22} {...props} name='user' />,
+        index : (props: any) => <AntDesign size={24} {...props} name='home' />,
+        explore : (props: any) => <Feather size={24} {...props} name='compass' />,
+        create : (props: any) => <Entypo size={24} {...props} name='wallet' />,
+        profile : (props: any) => <AntDesign size={24} {...props} name='user' />,
     }
 
   return (
@@ -44,7 +44,7 @@ const TabBar = ({ state, descriptors, navigation }: { state: any, descriptors: a
 
       return (
         <TouchableOpacity
-          className={`flex-row items-center justify-center py-[20px] px-[20px] rounded-full ${isFocused ? 'bg-primary' : 'bg-[#242e3e]'}`}
+          className={`flex-row items-center justify-center py-[18px] px-[18px] rounded-full ${isFocused ? 'bg-primary' : 'bg-[#242e3e]'}`}
           key={index}
           accessibilityState={isFocused ? { selected: true } : {}}
           accessibilityLabel={options.tabBarAccessibilityLabel}

@@ -70,19 +70,22 @@ const Explore = () => {
           {!hasSearched ? (
             // Recent Searches Section
             <View>
-              <Text className="text-lg font-semibold mb-3">Recent Searches</Text>
-              {recentSearches.map((search, index) => (
-                <TouchableOpacity
-                  key={index}
-                  className="flex-row items-center py-3 border-b border-gray-100"
-                  onPress={() => {
-                    setSearchQuery(search);
-                    setHasSearched(true);
-                  }}
-                >
-                  <Text className="text-base text-quaternary">{search}</Text>
-                </TouchableOpacity>
-              ))}
+              <Text className="text-lg text-quaternary font-semibold mb-3">Recent Searches</Text>
+              <View className="flex-row flex-wrap gap-2">
+                {recentSearches.map((search, index) => (
+                  <TouchableOpacity
+                    key={index}
+                    className="flex-row items-center bg-gray-800 rounded-full px-2 py-1"
+                    onPress={() => {
+                      setSearchQuery(search);
+                      setHasSearched(true);
+                    }}
+                  >
+                    <Text className="text-base text-quaternary">{search}</Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+
             </View>
           ) : (
             // Search Results Section

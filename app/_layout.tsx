@@ -7,7 +7,7 @@ import 'react-native-reanimated';
 import "../global.css";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { UIProvider } from '../context/UIContext';
-import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -52,8 +52,13 @@ const RootLayoutNav = () => {
   return (
     <UIProvider>
       <GestureHandlerRootView style={{ flex: 1 }}>
-        <RootLayout />
-        <StatusBar style="light" />
+        <SafeAreaProvider>
+          <RootLayout />
+          <StatusBar style="light"
+            backgroundColor="#000000"
+            translucent={false}
+          />
+        </SafeAreaProvider>
       </GestureHandlerRootView>
     </UIProvider>
   )
