@@ -99,7 +99,11 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView className="flex-1">
-      <View className="flex-1 bg-background pt-2"      >
+      <ScrollView className="flex-1 bg-background pt-2"
+        contentContainerStyle={{
+          paddingBottom: 90,
+        }}
+      >
         {/* Header Section */}
         <View className="bg-gray-400/5 mx-2 rounded-[30px] py-6">
           <View className="flex-row justify-between items-center px-4">
@@ -158,11 +162,7 @@ const HomeScreen = () => {
           </View>
         </View>
 
-        <ScrollView className="flex-1"
-        contentContainerStyle={{
-          paddingBottom: 90,
-        }}
-         >
+        <View className="flex-1">
         {/* Featured Domain */}
           <View className="mt-4 mx-4">
             <Text className="text-white text-xl font-bold mb-2">
@@ -258,8 +258,8 @@ const HomeScreen = () => {
               </View>
             </TouchableOpacity>
           </View>
-        </ScrollView>
-      </View>
+        </View>
+      </ScrollView>
 
 
     </SafeAreaView>
