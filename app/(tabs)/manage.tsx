@@ -23,56 +23,96 @@ const Manage = () => {
 
       {/* Settings Options */}
       <ScrollView className="flex-1">
-        <View className="space-y-4">
-          {[
-            {
-              icon: <AntDesign name="user" size={24} color="white" />,
-              title: "Account & Security"
-            },
-            {
-              icon: <AntDesign name="creditcard" size={24} color="white" />,
-              title: "Payment Methods"
-            },
-            {
-              icon: <Feather name="map-pin" size={24} color="white" />,
-              title: "Address"
-            },
-            {
-              icon: <Ionicons name="notifications-outline" size={24} color="white" />,
-              title: "Notifications"
-            },
-            {
-              icon: <AntDesign name="clockcircle" size={24} color="white" />,
-              title: "Transaction History"
-            },
-            {
-              icon: <Feather name="help-circle" size={24} color="white" />,
-              title: "Help & Feedback"
-            },
-            {
-              icon: <Feather name="settings" size={24} color="white" />,
-              title: "App Settings"
-            },
-            {
-              icon: <Feather name="shield" size={24} color="white" />,
-              title: "Privacy Policy"
-            },
-            {
-              icon: <Feather name="file-text" size={24} color="white" />,
-              title: "Terms of Service"
-            }
-          ].map((item, index) => (
-            <TouchableOpacity 
-              key={index}
-              className={`bg-gray-400/5 p-4 rounded-xl flex-row justify-between items-center ${index === 8 ? 'mb-6' : ''}`}
-            >
-              <View className="flex-row items-center gap-3">
-                {item.icon}
-                <Text className="text-quaternary text-lg">{item.title}</Text>
-              </View>
-              <Feather name="chevron-right" size={24} color="gray" />
-            </TouchableOpacity>
-          ))}
+        <View className="">
+          {/* Account & Payments */}
+          <View className="space-y-0.5 mb-4">
+            <Text className="text-gray-400 text-sm mb-2 px-2">Account & Payments</Text>
+            {[
+              {
+                icon: <AntDesign name="user" size={24} color="white" />,
+                title: "Account & Security"
+              },
+              {
+                icon: <AntDesign name="creditcard" size={24} color="white" />,
+                title: "Payment Methods"
+              },
+              {
+                icon: <Feather name="map-pin" size={24} color="white" />,
+                title: "Address"
+              }
+            ].map((item, index) => (
+              <TouchableOpacity 
+                key={index}
+                className="p-4 flex-row justify-between items-center"
+              >
+                <View className="flex-row items-center gap-3">
+                  {item.icon}
+                  <Text className="text-quaternary text-lg">{item.title}</Text>
+                </View>
+                <Feather name="chevron-right" size={24} color="gray" />
+              </TouchableOpacity>
+            ))}
+          </View>
+
+          {/* Preferences */}
+          <View className="space-y-0.5 mb-4">
+            <Text className="text-gray-400 text-sm mb-2 px-2">Preferences</Text>
+            {[
+              {
+                icon: <Ionicons name="notifications-outline" size={24} color="white" />,
+                title: "Notifications"
+              },
+              {
+                icon: <AntDesign name="clockcircle" size={24} color="white" />,
+                title: "Transaction History"
+              },
+              {
+                icon: <Feather name="settings" size={24} color="white" />,
+                title: "App Settings"
+              }
+            ].map((item, index) => (
+              <TouchableOpacity 
+                key={index}
+                className="p-4 flex-row justify-between items-center"
+              >
+                <View className="flex-row items-center gap-3">
+                  {item.icon}
+                  <Text className="text-quaternary text-lg">{item.title}</Text>
+                </View>
+                <Feather name="chevron-right" size={24} color="gray" />
+              </TouchableOpacity>
+            ))}
+          </View>
+
+          {/* Support & Legal */}
+          <View className="space-y-0.5 mb-4">
+            <Text className="text-gray-400 text-sm mb-2 px-2">Support & Legal</Text>
+            {[
+              {
+                icon: <Feather name="help-circle" size={24} color="white" />,
+                title: "Help & Feedback"
+              },
+              {
+                icon: <Feather name="shield" size={24} color="white" />,
+                title: "Privacy Policy"
+              },
+              {
+                icon: <Feather name="file-text" size={24} color="white" />,
+                title: "Terms of Service"
+              }
+            ].map((item, index) => (
+              <TouchableOpacity 
+                key={index}
+                className="p-4 flex-row justify-between items-center"
+              >
+                <View className="flex-row items-center gap-3">
+                  {item.icon}
+                  <Text className="text-quaternary text-lg">{item.title}</Text>
+                </View>
+                <Feather name="chevron-right" size={24} color="gray" />
+              </TouchableOpacity>
+            ))}
+          </View>
 
           {/* App Version Info */}
           <View className="items-center mb-8">

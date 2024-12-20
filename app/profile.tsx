@@ -30,6 +30,35 @@ const Profile = () => {
           </View>
           <Text className="text-white">Web3 Developer</Text>
         </View>
+
+        {/* Fun Profile Questions */}
+        <View className="mt-6 w-full px-4">
+          <View className="flex-row flex-wrap justify-between">
+            <View className="w-[48%] bg-gray-400/5 rounded-xl p-3 mb-3">
+              <Text className="text-primary text-lg mb-1">🚀</Text>
+              <Text className="text-gray-400 text-xs">BUILDING</Text>
+              <Text className="text-white">Web3 Time Machine</Text>
+            </View>
+
+            <View className="w-[48%] bg-gray-400/5 rounded-xl p-3 mb-3">
+              <Text className="text-primary text-lg mb-1">💻</Text>
+              <Text className="text-gray-400 text-xs">STACK</Text>
+              <Text className="text-white">Chaos.js + Coffee</Text>
+            </View>
+
+            <View className="w-[48%] bg-gray-400/5 rounded-xl p-3 mb-3">
+              <Text className="text-primary text-lg mb-1">🎯</Text>
+              <Text className="text-gray-400 text-xs">HUNTING</Text>
+              <Text className="text-white">Epic Domains</Text>
+            </View>
+
+            <View className="w-[48%] bg-gray-400/5 rounded-xl p-3 mb-3">
+              <Text className="text-primary text-lg mb-1">🎮</Text>
+              <Text className="text-gray-400 text-xs">FUN FACT</Text>
+              <Text className="text-white">Debug In Dreams</Text>
+            </View>
+          </View>
+        </View>
       </View>
 
       <View className="flex-row justify-between mx-4 pt-6">
@@ -57,14 +86,14 @@ const Profile = () => {
         <View className="bg-gray-400/5 w-[48%] p-3 rounded-2xl relative">
           {/* Absolute number positioned to the right */}
           <Text
-            className="absolute text-gray-400/10 font-bold"
+            className="absolute text-gray-700 font-bold"
             style={{ right: 0, fontSize: 65, top: 0 }}
           >
             01
           </Text>
 
           {/* Circular Icon Container */}
-          <View className="rounded-full bg-red-700/20 w-12 h-12 flex justify-center items-center">
+          <View className="rounded-full bg-red-700/20 w-12 h-12 flex justify-center items-center my-2">
             <AntDesign name="arrowup" size={24} color="#ff4444" />
           </View>
           <Text className="text-gray-300 text-xl font-semibold mt-2">
