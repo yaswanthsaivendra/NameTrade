@@ -1,243 +1,72 @@
-import {
-  View,
-  Text,
-  Image,
-  ScrollView,
-  TouchableOpacity,
-  Dimensions,
-} from "react-native";
-import { AntDesign, Entypo, FontAwesome5 } from "@expo/vector-icons";
-import Slider from "@/components/Slider";
-import colors from "@/constants/colors";
+import { View, Text, Image, TextInput } from "react-native";
+import React, { useState } from "react";
+import { Feather } from "@expo/vector-icons";
 
-// Mock data for the carousel
-const DOMAIN_DATA = [
-  {
-    id: 1,
-    type: "Domain of the Week",
-    domain: "example.com",
-    price: "$1,999",
-    owner: "John Doe",
-  },
-  {
-    id: 2,
-    type: "Featured Domain",
-    domain: "crypto.io",
-    price: "$2,499",
-    owner: "Jane Smith",
-  },
-  {
-    id: 3,
-    type: "Domain of the Month",
-    domain: "example.com",
-    price: "$1,999",
-    owner: "John Doe",
-  },
-  // Add more items as needed
-];
+const HomeScreen = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [hasSearched, setHasSearched] = useState(true);
 
-export default function HomeScreen() {
-  const windowWidth = Dimensions.get("window").width;
+  const handleTextChange = (text: string) => {
+    setSearchQuery(text);
+    if (text.trim() === "") {
+      setHasSearched(false);
+    }
+  };
 
   return (
-    <View className="flex-1 bg-background pt-12 gap-6">
+    <View className="flex-1 bg-background pt-8">
       {/* Header Section */}
       <View className="flex-row justify-between items-center px-4">
+        <View className="flex-row items-center gap-x-3">
+          <View className="border-2 border-primary p-1 rounded-full">
+            <Image
+              source={require("@/assets/images/profile.png")}
+              className="w-14 h-14 rounded-full"
+            />
+          </View>
+        </View>
+        <View className="w-14 h-14 rounded-full bg-primary/5 flex items-center justify-center relative">
+          <Text className="absolute bg-primary">2</Text>
+          {/* NOTIFICATION ICON */}
+          <Image
+            source={{ uri: "https://placeholder.com/150" }}
+            className="w-10 h-10 rounded-full"
+          />
+        </View>
+      </View>
+
+      {/* Hero Section */}
+      <View className="px-4 mt-8 bg-gray-400">
+        <Text className="text-5xl text-white">Hello, Max</Text>
+        <Text className="text-white text-5xl">
+          Which <Text className="font-bold text-primary/90">domain</Text> are
+          you searching for?
+        </Text>
+
+        <View className="mt-4 bg-gray-400/10 rounded-full flex-row items-center">
+          <TextInput
+            className="rounded-full outline-none px-6 py-5 text-lg text-quaternary w-[90%]"
+            placeholder="Type domain name"
+            value={searchQuery}
+            onChangeText={handleTextChange}
+            // onSubmitEditing={handleSearch}
+            returnKeyType="search"
+            placeholderTextColor="gray"
+          />
+          <Feather
+            name="arrow-up-right"
+            size={30}
+            color="red"
+            className="mr-11"
+          />
+        </View>
+
         <View>
-          <Text className="text-gray-400">Welcome back,</Text>
-          <Text className="text-white text-xl font-bold">John Doe</Text>
+          <Text className="text-white">Hello</Text>
         </View>
-        <Image
-          source={{ uri: "https://placeholder.com/150" }}
-          source={{ uri: "https://avatars.githubusercontent.com/u/3?v=4" }}
-          className="w-10 h-10 rounded-full"
-        />
-      </View>
-
-      {/* Carousel Section */}
-      <Slider data={DOMAIN_DATA} />
-
-      {/* Buy/Sell Section */}
-      <View className="flex-row justify-center gap-8">
-        <TouchableOpacity
-          className="px-10 py-5 rounded-2xl flex-row items-center bg-primary/10 border-l-4 border-primary"
-          style={{
-            shadowColor: colors.primary,
-            shadowOffset: { width: 4, height: 4 },
-            shadowOpacity: 0.2,
-            shadowRadius: 8,
-          }}
-        >
-          <AntDesign name="shoppingcart" size={24} color={colors.primary} />
-          <Text className="text-primary font-bold text-lg ml-3">Buy</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          className="px-10 py-5 rounded-2xl flex-row items-center bg-tertiary/10 border-l-4 border-tertiary"
-          style={{
-            shadowColor: colors.tertiary,
-            shadowOffset: { width: 4, height: 4 },
-            shadowOpacity: 0.2,
-            shadowRadius: 8,
-          }}
-        >
-          <AntDesign name="tag" size={24} color={colors.tertiary} />
-          <Text className="text-tertiary font-bold text-lg ml-3">Sell</Text>
-        </TouchableOpacity>
-      </View>
-
-      {/* Hot Right Now Section */}
-      <View className="px-4">
-        <View className="flex-row items-center mb-4">
-          <FontAwesome5 name="fire-alt" size={24} color={colors.tertiary} />
-          <Text className="text-white text-xl font-bold ml-2">
-            Hot Right Now
-          </Text>
-        </View>
-
-        <ScrollView
-          className=""
-          contentContainerStyle={{
-            gap: 8,
-            paddingBottom: 100,
-          }}
-        >
-          <TouchableOpacity className="flex-row justify-between items-center bg-primary/5 p-6 rounded-xl h-28">
-            <View className="flex-row items-center gap-4">
-              <View>
-                <Text className="text-quaternary text-xl font-bold mb-1">
-                  metaverse.eth
-                </Text>
-                <View className="flex-row items-center gap-2 mb-2">
-                  <View className="bg-green-500/20 px-2 py-0.5 rounded">
-                    <Text className="text-green-500 text-xs">Available</Text>
-                  </View>
-                  <View className="bg-blue-500/20 px-2 py-0.5 rounded">
-                    <Text className="text-blue-500 text-xs">Premium</Text>
-                  </View>
-                </View>
-                <View className="flex-row items-center gap-2">
-                  <Image
-                    source={{
-                      uri: "https://avatars.githubusercontent.com/u/3?v=4",
-                    }}
-                    className="w-5 h-5 rounded-full"
-                  />
-                  <Text className="text-gray-400 text-sm">
-                    Listed by CryptoKing
-                  </Text>
-                </View>
-              </View>
-            </View>
-
-            <View className="items-end gap-3">
-              <View className="flex-row items-center gap-4">
-                <TouchableOpacity className="bg-primary/10 p-2 rounded-full">
-                  <AntDesign name="hearto" size={20} color="#fff" />
-                </TouchableOpacity>
-              </View>
-              <View>
-                <Text className="text-quaternary font-bold text-xl">
-                  $15,000
-                </Text>
-                <Text className="text-gray-400 text-xs text-right">
-                  Last Sale: $12,000
-                </Text>
-              </View>
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity className="flex-row justify-between items-center bg-primary/5 p-6 rounded-xl h-28">
-            <View className="flex-row items-center gap-4">
-              <View>
-                <Text className="text-quaternary text-xl font-bold mb-1">
-                  startup.com
-                </Text>
-                <View className="flex-row items-center gap-2 mb-2">
-                  <View className="bg-green-500/20 px-2 py-0.5 rounded">
-                    <Text className="text-green-500 text-xs">Available</Text>
-                  </View>
-                  <View className="bg-blue-500/20 px-2 py-0.5 rounded">
-                    <Text className="text-blue-500 text-xs">Premium</Text>
-                  </View>
-                </View>
-                <View className="flex-row items-center gap-2">
-                  <Image
-                    source={{
-                      uri: "https://avatars.githubusercontent.com/u/4?v=4",
-                    }}
-                    className="w-5 h-5 rounded-full"
-                  />
-                  <Text className="text-gray-400 text-sm">
-                    Listed by DomainPro
-                  </Text>
-                </View>
-              </View>
-            </View>
-
-            <View className="items-end gap-3">
-              <View className="flex-row items-center gap-4">
-                <TouchableOpacity className="bg-primary/10 p-2 rounded-full">
-                  <AntDesign name="hearto" size={20} color="#fff" />
-                </TouchableOpacity>
-              </View>
-              <View>
-                <Text className="text-quaternary font-bold text-xl">
-                  $8,500
-                </Text>
-                <Text className="text-gray-400 text-xs text-right">
-                  Last Sale: $6,000
-                </Text>
-              </View>
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity className="flex-row justify-between items-center bg-primary/5 p-6 rounded-xl h-28">
-            <View className="flex-row items-center gap-4">
-              <View>
-                <Text className="text-quaternary text-xl font-bold mb-1">
-                  software.io
-                </Text>
-                <View className="flex-row items-center gap-2 mb-2">
-                  <View className="bg-green-500/20 px-2 py-0.5 rounded">
-                    <Text className="text-green-500 text-xs">Available</Text>
-                  </View>
-                  <View className="bg-blue-500/20 px-2 py-0.5 rounded">
-                    <Text className="text-blue-500 text-xs">Premium</Text>
-                  </View>
-                </View>
-                <View className="flex-row items-center gap-2">
-                  <Image
-                    source={{
-                      uri: "https://avatars.githubusercontent.com/u/5?v=4",
-                    }}
-                    className="w-5 h-5 rounded-full"
-                  />
-                  <Text className="text-gray-400 text-sm">
-                    Listed by TechBroker
-                  </Text>
-                </View>
-              </View>
-            </View>
-
-            <View className="items-end gap-3">
-              <View className="flex-row items-center gap-4">
-                <TouchableOpacity className="bg-primary/10 p-2 rounded-full">
-                  <AntDesign name="hearto" size={20} color="#fff" />
-                </TouchableOpacity>
-              </View>
-              <View>
-                <Text className="text-quaternary font-bold text-xl">
-                  $12,000
-                </Text>
-                <Text className="text-gray-400 text-xs text-right">
-                  Last Sale: $9,000
-                </Text>
-              </View>
-            </View>
-          </TouchableOpacity>
-        </ScrollView>
       </View>
     </View>
   );
-}
+};
+
+export default HomeScreen;
