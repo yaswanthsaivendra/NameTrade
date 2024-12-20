@@ -25,7 +25,7 @@ const featuredDomains: DomainItem[] = [
     id: "1",
     domainUrl: "travel.com",
     favouriteCount: 120,
-    createdAt: "2023-01-15", 
+    createdAt: "2023-01-15",
     isAvailable: true,
   },
   {
@@ -36,7 +36,7 @@ const featuredDomains: DomainItem[] = [
     isAvailable: false,
   },
   {
-    id: "3", 
+    id: "3",
     domainUrl: "recipes.org",
     favouriteCount: 180,
     createdAt: "2023-03-10",
@@ -63,7 +63,7 @@ const renderItem = ({ item }: { item: DomainItem }) => (
     onPress={() => alert(`Domain Selected: ${item.domainUrl}`)} // Handle item selection
     className="mr-4" // Margin right to space out the items
   >
-    <View className="rounded-2xl px-4 py-2 bg-gray-400/10">
+    <View className="rounded-2xl px-3 py-2 bg-gray-400/10">
       {/* Displaying domain name */}
       <Text className="text-white text-center text-lg font-semibold">
         {item.domainUrl}
@@ -76,9 +76,9 @@ const renderItem = ({ item }: { item: DomainItem }) => (
             {item.favouriteCount}
           </Text>
         </View>
-        <View className="rounded-full p-1 bg-gray-400/10">
-          <Feather name="arrow-up-right" size={20} color="gray" />
-        </View>
+        {/* <View className="rounded-full p-1 bg-gray-400/10">
+          <Feather name="arrow-up-right" size={15} color="gray" />
+        </View> */}
       </View>
     </View>
   </TouchableOpacity>
@@ -99,12 +99,15 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView className="flex-1">
-      <View className="flex-1 bg-background pt-2"      >
+      <View className="flex-1 bg-background pt-2">
         {/* Header Section */}
         <View className="bg-gray-400/5 mx-2 rounded-[30px] py-6">
           <View className="flex-row justify-between items-center px-4">
             <View className="flex-row items-center gap-x-3">
-              <TouchableOpacity onPress={() => router.push("/profile")} className="border-2 border-primary p-1 rounded-full">
+              <TouchableOpacity
+                onPress={() => router.push("/profile")}
+                className="border-2 border-primary p-1 rounded-full"
+              >
                 <Image
                   source={require("@/assets/images/profile.png")}
                   className="w-14 h-14 rounded-full"
@@ -135,8 +138,8 @@ const HomeScreen = () => {
           <View className="px-4 mt-8">
             <Text className="text-5xl text-white">Hello, Max</Text>
             <Text className="text-white text-5xl">
-              Which <Text className="font-bold text-primary/90">domain</Text> are
-              you searching for?
+              Which <Text className="font-bold text-primary/90">domain</Text>{" "}
+              are you searching for?
             </Text>
 
             <View className="mt-4 bg-gray-400/10 rounded-full flex-row items-center w-full">
@@ -158,12 +161,13 @@ const HomeScreen = () => {
           </View>
         </View>
 
-        <ScrollView className="flex-1"
-        contentContainerStyle={{
-          paddingBottom: 90,
-        }}
-         >
-        {/* Featured Domain */}
+        <ScrollView
+          className="flex-1"
+          contentContainerStyle={{
+            paddingBottom: 90,
+          }}
+        >
+          {/* Featured Domain */}
           <View className="mt-4 mx-4">
             <Text className="text-white text-xl font-bold mb-2">
               Featured Domains
@@ -179,11 +183,15 @@ const HomeScreen = () => {
           </View>
 
           <View className="mt-4 mx-4">
-            <Text className="text-white text-xl font-bold mb-2">Your Account</Text>
+            <Text className="text-white text-xl font-bold mb-2">
+              Your Account
+            </Text>
             <View className="flex-row justify-between">
               {/* Best Buy Card */}
               <View className="rounded-3xl p-4 w-[48%] bg-gray-400/10">
-                <Text className="text-white text-xl font-semibold">Best Buy</Text>
+                <Text className="text-white text-xl font-semibold">
+                  Best Buy
+                </Text>
                 <View className="mt-4">
                   {/* Domain Name */}
                   <Text className="text-white text-lg font-bold mb-2">
@@ -260,10 +268,8 @@ const HomeScreen = () => {
           </View>
         </ScrollView>
       </View>
-
-
     </SafeAreaView>
-  )
-}
+  );
+};
 
 export default HomeScreen;
