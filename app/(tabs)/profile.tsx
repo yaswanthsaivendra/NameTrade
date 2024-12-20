@@ -65,13 +65,13 @@ const Profile = () => {
           <View className="flex-1 bg-primary/5 p-4 rounded-xl">
             <View className="flex-row items-center gap-10 pl-2">
               <View className="items-center">
-                <Text className="text-secondary text-2xl font-bold">12</Text>
-                <Text className="text-tertiary text-sm">Owned</Text>
+                <Text className="text-white text-2xl font-bold">12</Text>
+                <Text className="text-gray-300 text-sm">Owned</Text>
                 <Text className="text-gray-500 text-xs">Domains</Text>
               </View>
               <View className="items-center">
-                <Text className="text-secondary text-2xl font-bold">5</Text>
-                <Text className="text-tertiary text-sm">Domains</Text>
+                <Text className="text-white text-2xl font-bold">5</Text>
+                <Text className="text-gray-300 text-sm">Domains</Text>
                 <Text className="text-gray-500 text-xs">Sold</Text>
               </View>
             </View>
@@ -103,8 +103,8 @@ const Profile = () => {
               Top Sale
             </Text>
             <View className="p-3 rounded-lg">
-              <Text className="text-secondary text-xl">meta.eth</Text>
-              <Text className="text-tertiary mt-1">Sold for</Text>
+              <Text className="text-white text-xl">meta.eth</Text>
+              <Text className="text-gray-400 mt-1">Sold for</Text>
               <Text className="text-primary text-lg font-bold">$3,500</Text>
             </View>
           </View>
@@ -117,13 +117,13 @@ const Profile = () => {
             <View className="p-3 rounded-lg">
               <View className="flex-col mb-2">
                 <View className="flex-row items-center mb-1">
-                  <Text className="text-secondary text-xl mr-2">30d</Text>
-                  <Text className="text-tertiary text-sm">Volume</Text>
+                  <Text className="text-white text-xl mr-2">30d</Text>
+                  <Text className="text-gray-400 text-sm">Volume</Text>
                 </View>
                 <Text className="text-primary text-2xl font-bold">$12.5k</Text>
               </View>
               <View className="flex-row items-center justify-between">
-                <Text className="text-tertiary text-sm">
+                <Text className="text-gray-400 text-sm">
                   +25% from last month
                 </Text>
                 <AntDesign name="arrowup" size={12} color="#22c55e" />
@@ -139,30 +139,30 @@ const Profile = () => {
               Watching
             </Text>
             <TouchableOpacity className="">
-              <Text className="text-primary">See All</Text>
+              <Text className="text-tertiary">See All</Text>
             </TouchableOpacity>
           </View>
           <View className="flex-row flex-wrap gap-2 ">
             <TouchableOpacity className="px-4 py-3 rounded-lg bg-primary/5">
               <View className="flex-row items-center gap-4 mb-1">
-                <Text className="text-tertiary font-medium">defi.eth</Text>
+                <Text className="text-white font-medium">defi.eth</Text>
                 <AntDesign name="star" size={16} color="#FFD700" />
               </View>
-              <Text className="text-secondary font-bold">$5,000</Text>
+              <Text className="text-gray-300 font-bold">$5,000</Text>
             </TouchableOpacity>
             <TouchableOpacity className="px-4 py-3 rounded-lg bg-primary/5">
               <View className="flex-row items-center gap-4 mb-1">
-                <Text className="text-tertiary font-medium">nft.eth</Text>
+                <Text className="text-white font-medium">nft.eth</Text>
                 <AntDesign name="star" size={16} color="#FFD700" />
               </View>
-              <Text className="text-secondary font-bold">$8,200</Text>
+              <Text className="text-gray-300 font-bold">$8,200</Text>
             </TouchableOpacity>
             <TouchableOpacity className="px-4 py-3 rounded-lg bg-primary/5">
               <View className="flex-row items-center gap-4 mb-1">
-                <Text className="text-tertiary font-medium">dao.eth</Text>
+                <Text className="text-white font-medium">dao.eth</Text>
                 <AntDesign name="star" size={16} color="#FFD700" />
               </View>
-              <Text className="text-secondary font-bold">$12,000</Text>
+              <Text className="text-gray-300 font-bold">$12,000</Text>
             </TouchableOpacity>
           </View>
         </View>
