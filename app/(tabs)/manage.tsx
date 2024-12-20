@@ -78,6 +78,11 @@ const Manage = () => {
           <View className="items-center mb-8">
             <Text className="text-gray-500">App Version 1.0.0</Text>
           </View>
+
+          {/* Made with love */}
+          <View className="items-center mb-4">
+            <Text className="text-gray-500">Made with ❤️ by Yash and Nilan</Text>
+          </View>
         </View>
       </ScrollView>
     </View>
