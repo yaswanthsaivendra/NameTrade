@@ -60,7 +60,7 @@ const renderItem = ({ item }: { item: DomainItem }) => (
     onPress={() => alert(`Domain Selected: ${item.domainUrl}`)} // Handle item selection
     className="mr-4" // Margin right to space out the items
   >
-    <View className="rounded-xl px-4 py-2 bg-gray-400/10">
+    <View className="rounded-2xl px-4 py-2 bg-gray-400/10">
       {/* Displaying domain name */}
       <Text className="text-white text-center text-lg font-semibold">
         {item.domainUrl}
@@ -153,6 +153,7 @@ const HomeScreen = () => {
         </View>
       </View>
 
+      {/* Featured Domain */}
       <View className="mt-4 mx-4">
         <Text className="text-white text-xl font-bold mb-2">
           Featured Domains
@@ -167,6 +168,66 @@ const HomeScreen = () => {
         />
       </View>
 
+      <View className="mt-4 mx-4">
+        <Text className="text-white text-xl font-bold mb-2">Your Account</Text>
+        <View className="flex-row justify-between">
+          {/* Best Buy Card */}
+          <View className="rounded-3xl p-4 w-[48%] bg-gray-400/10">
+            <Text className="text-white text-xl font-semibold">Best Buy</Text>
+            <View className="mt-4">
+              {/* Domain Name */}
+              <Text className="text-white text-lg font-bold mb-2">
+                www.bestbuydomain.com
+              </Text>
+
+              {/* Purchase Date and Price */}
+              <View className="flex-row justify-between items-center">
+                <Text className="text-white text-sm opacity-80">
+                  Aug 10, 2023
+                </Text>
+                <Text className="text-white text-lg font-semibold opacity-90">
+                  $1200
+                </Text>
+              </View>
+
+              {/* Status */}
+              <Text className="text-white text-sm text-center font-bold mt-4 bg-green-600 p-1 rounded-full">
+                Purchased
+              </Text>
+            </View>
+          </View>
+
+          {/* Recent Sell Card */}
+          <View className="rounded-3xl p-4 w-[48%] bg-gray-400/10">
+            <Text className="text-white text-xl font-semibold">
+              Recent Sell
+            </Text>
+            <View className="mt-4">
+              {/* Domain Name */}
+              <Text className="text-white text-lg font-bold mb-2">
+                www.recentlysold.com
+              </Text>
+
+              {/* Sell Date and Price */}
+              <View className="flex-row justify-between items-center">
+                <Text className="text-white text-sm opacity-80">
+                  Dec 1, 2023
+                </Text>
+                <Text className="text-white text-lg font-semibold opacity-90">
+                  $800
+                </Text>
+              </View>
+
+              {/* Status */}
+              <Text className="text-white text-sm mt-4 text-center font-bold bg-blue-600 p-1 rounded-full">
+                Sold
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+
+      {/* Selling Your Domain Card */}
       <View className="mt-8 mx-2 bg-gray-400/5 rounded-[30px] flex-row items-center justify-between gap-x-4 p-6">
         <View className="flex-1">
           <Text className="text-white text-2xl font-semibold">
