@@ -1,4 +1,4 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, ScrollView } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
@@ -12,23 +12,27 @@ const Profile = () => {
   return (
     <SafeAreaView className="flex-1">
       {/* ADD A GRADIENT HERE IN THE BACKGROUND MAKE IT BLUR TOWARDS THE END OF IT TO BLEND IT. */}
-
-      {/* HEADER IMAGE */}
-      <View className="flex justify-center items-center gap-y-2">
-        <View className="border-2 border-primary/20 rounded-full p-[6px]">
+      <ScrollView className="flex-1 bg-background pt-2"
+        contentContainerStyle={{
+          paddingBottom: 90,
+        }}
+      >
+        {/* HEADER IMAGE */}
+        <View className="flex justify-center items-center gap-y-2">
+          <View className="border-2 border-primary/20 rounded-full p-[6px]">
           <Image
-            source={{ uri: "https://avatars.githubusercontent.com/u/3?v=4" }}
+            source={{ uri: "https://avatars.githubusercontent.com/u/6?v=4" }}
             className="w-40 h-40 rounded-full"
           />
         </View>
         <View className="flex items-center justify-center">
           <View className="flex-row gap-x-1 items-center">
             <Text className="text-center text-white text-2xl font-bold">
-              Nilanchala Panda
+              Max Smith
             </Text>
             <MaterialIcons name="verified" size={24} color="#1DA1F2" />
           </View>
-          <Text className="text-white">Web3 Developer</Text>
+          <Text className="text-white">Domain Trading Enthusiast</Text>
         </View>
 
         {/* Fun Profile Questions */}
@@ -61,7 +65,12 @@ const Profile = () => {
         </View>
       </View>
 
-      <View className="flex-row justify-between mx-4 pt-6">
+      {/* TRADING HISTORY */}
+      <View className="mx-4 gap-y-4 pt-6">
+        <Text className="text-white text-2xl font-bold">
+          Domain History
+        </Text>
+        <View className="flex-row justify-between">
         <View className="bg-gray-400/5 w-[48%] p-3 rounded-2xl relative">
           {/* Absolute number positioned to the right */}
           <Text
@@ -104,15 +113,10 @@ const Profile = () => {
           </Text>
         </View>
       </View>
-
-      {/* TRADING HISTORY */}
-      <View className="mx-4 gap-y-4 pt-6">
-        <Text className="text-white text-2xl font-bold">
-          My Trading History
-        </Text>
         {/* TRADING HISTORY CHART THAT WILL SHOW THE PURCHASE AND SELLING OF THE DOMAINS WITH A POINTER ON A DOTTED LINE GRAPH, WITH TIME ON X-AXIS AND MONEY ON Y-AXIS. */}
         <TradingHistoryChart />
       </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

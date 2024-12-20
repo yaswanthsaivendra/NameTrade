@@ -11,7 +11,7 @@ const Manage = () => {
       <View className="bg-gray-400/5 p-4 rounded-xl mb-6">
         <View className="flex-row items-center gap-4">
           <Image        
-            source={require("@/assets/images/profile.png")}
+            source={{ uri: "https://avatars.githubusercontent.com/u/6?v=4" }}
             className="w-14 h-14 rounded-full"
           />    
           <View>

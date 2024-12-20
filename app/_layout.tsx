@@ -3,7 +3,6 @@ import { router, Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
-import "react-native-reanimated";
 import "../global.css";
 import {
   GestureHandlerRootView,
@@ -14,7 +13,6 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import Colors from "../constants/colors";
-import "react-native-reanimated";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -56,8 +54,8 @@ function RootLayout() {
       <Stack.Screen
         name="profile"
         options={{
-          headerTitle: " ",
-          headerBackTitle: " ",
+          headerTitle: "",
+          headerBackTitle: "",
           headerShadowVisible: false,
           headerStyle: {
             backgroundColor: Colors.background,
