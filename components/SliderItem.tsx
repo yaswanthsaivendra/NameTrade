@@ -1,13 +1,14 @@
-import { View, Text, Dimensions, Image } from 'react-native'
-import React from 'react'
-import { AntDesign } from '@expo/vector-icons';
+import { View, Text, Dimensions, Image } from "react-native";
+import React from "react";
+import { AntDesign } from "@expo/vector-icons";
+import hero from "@/constants/images";
 
 interface SliderItemProps {
-    item: any
-    index: number
+  item: any;
+  index: number;
 }
 
-const windowWidth = Dimensions.get('window').width;
+const windowWidth = Dimensions.get("window").width;
 
 const SliderItem = ({ item, index }: SliderItemProps) => {
     return (
@@ -50,7 +51,9 @@ const SliderItem = ({ item, index }: SliderItemProps) => {
                 </View>
             </View>
         </View>
-    )
-}
+      </View>
+    </View>
+  );
+};
 
-export default SliderItem
+export default SliderItem;
