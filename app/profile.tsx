@@ -2,6 +2,7 @@ import { View, Text, Image } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
+import TradingHistoryChart from "@/components/TradingComponent";
 
 const Profile = () => {
   const handleShare = () => {
@@ -31,7 +32,7 @@ const Profile = () => {
         </View>
       </View>
 
-      <View className="flex-row justify-between mx-4 mt-8">
+      <View className="flex-row justify-between mx-4 pt-6">
         <View className="bg-gray-400/5 w-[48%] p-3 rounded-2xl relative">
           {/* Absolute number positioned to the right */}
           <Text
@@ -76,8 +77,12 @@ const Profile = () => {
       </View>
 
       {/* TRADING HISTORY */}
-      <View className="mx-4 gap-y-4 mt-8">
-        <Text className="text-white text-2xl font-bold">Trading History</Text>
+      <View className="mx-4 gap-y-4 pt-6">
+        <Text className="text-white text-2xl font-bold">
+          My Trading History
+        </Text>
+        {/* TRADING HISTORY CHART THAT WILL SHOW THE PURCHASE AND SELLING OF THE DOMAINS WITH A POINTER ON A DOTTED LINE GRAPH, WITH TIME ON X-AXIS AND MONEY ON Y-AXIS. */}
+        <TradingHistoryChart />
       </View>
     </SafeAreaView>
   );
