@@ -11,11 +11,11 @@ const windowWidth = Dimensions.get('window').width;
 
 const SliderItem = ({ item, index }: SliderItemProps) => {
     return (
-        <View className="flex-row items-center justify-center mt-5" style={{ width: windowWidth }}>
-            <View className="bg-primary/5 p-7 rounded-2xl w-96 relative mt-4 mx-2">
+        <View className="flex-row items-center justify-center" style={{ width: windowWidth }}>
+            <View className="bg-gray-800/50 p-7 rounded-2xl w-96 relative mt-3 mx-2">
                
-                <View className="absolute -right-1 -top-1 bg-primary/90 px-3 py-1.5 rounded-lg rotate-12 shadow-lg">
-                    <Text className="text-black font-bold text-sm">TOP 1</Text>
+                <View className="absolute -right-1 -top-1 bg-gray-200 px-3 py-1.5 rounded-lg rotate-12 shadow-lg">
+                    <Text className="text-gray-800 font-bold text-sm">TOP 1</Text>
                 </View>
 
                 {/* Badge for type */}
@@ -25,10 +25,10 @@ const SliderItem = ({ item, index }: SliderItemProps) => {
 
                 {/* Domain name with icon */}
                 <View className="flex-row items-center gap-3 mb-6">
-                    <View className="bg-primary/25 p-2.5 rounded-full">
-                        <AntDesign name="link" size={24} color="#42DBF0" />
+                    <View className="bg-gray-200/25 p-2.5 rounded-full">
+                        <AntDesign name="link" size={24} color="#e5e7eb" />
                     </View>
-                    <Text className="text-primary text-2xl font-bold tracking-tight">{item.domain}</Text>
+                    <Text className="text-quaternary text-2xl font-bold tracking-tight">{item.domain}</Text>
                 </View>
 
                 {/* Price and owner info */}
@@ -41,7 +41,7 @@ const SliderItem = ({ item, index }: SliderItemProps) => {
                         <Text className="text-gray-400 text-sm mb-1.5">Owner</Text>
                         <View className="flex-row items-center gap-2.5">
                             <Image 
-                                source={{ uri: 'https://placeholder.com/32' }}
+                                source={{ uri: 'https://avatars.githubusercontent.com/u/3?v=4' }}
                                 className="w-6 h-6 rounded-full border border-gray-600"
                             />
                             <Text className="text-quaternary font-medium">{item.owner}</Text>

@@ -110,21 +110,33 @@ const Explore = () => {
               </View>
 
               {/* Results */}
-              <View className='flex-1 gap-2'>
+              <View className='flex-1 gap-3'>
                 {mockResults.map((item, index) => (
                   <TouchableOpacity
                     key={index}
-                    className="flex-row items-center justify-between p-4 bg-[#1a1919] rounded-lg"
+                    className="flex-row justify-between items-center bg-primary/5 p-4 rounded-xl"
                     onPress={() => handleDomainSelect(item)}
                   >
                     <View>
-                      <Text className="text-md font-semibold text-quaternary">{item.domain}</Text>
-                      <Text className="text-sm text-gray-400 text-opacity-50">{item.seller}</Text>
+                      <Text className="text-quaternary text-xl font-bold mb-2">{item.domain}</Text>
+                      <View className="flex-row items-center gap-2">
+                        {index % 2 === 0 ? (
+                          <View className="bg-green-500/20 px-2 py-0.5 rounded">
+                            <Text className="text-green-500 text-xs">Available</Text>
+                          </View>
+                        ) : (
+                          <View className="bg-red-500/20 px-2 py-0.5 rounded">
+                            <Text className="text-red-500 text-xs">Taken</Text>
+                          </View>
+                        )}
+                      </View>
                     </View>
-                    <View className="flex-row items-center gap-3">
-                      <Text className="text-base font-semibold text-quaternary">
-                        ${item.price}
-                      </Text>
+
+                    <View className="items-end">
+                      <TouchableOpacity className="bg-primary/10 p-2 rounded-full mb-2">
+                        <AntDesign name="hearto" size={20} color="#fff" />
+                      </TouchableOpacity>
+                      <Text className="text-gray-400 text-xs">Click for details</Text>
                     </View>
                   </TouchableOpacity>
                 ))}
