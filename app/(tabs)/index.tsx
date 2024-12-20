@@ -76,9 +76,6 @@ const renderItem = ({ item }: { item: DomainItem }) => (
             {item.favouriteCount}
           </Text>
         </View>
-        {/* <View className="rounded-full p-1 bg-gray-400/10">
-          <Feather name="arrow-up-right" size={15} color="gray" />
-        </View> */}
       </View>
     </View>
   </TouchableOpacity>
