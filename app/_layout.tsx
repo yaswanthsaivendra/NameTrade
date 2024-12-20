@@ -1,14 +1,16 @@
 import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
+import { router, Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import "react-native-reanimated";
 import "../global.css";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { GestureHandlerRootView, TouchableOpacity } from "react-native-gesture-handler";
 import { UIProvider } from "../context/UIContext";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import React from "react";
+import { Ionicons } from "@expo/vector-icons";
+import Colors from "../constants/colors";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -38,7 +40,31 @@ function RootLayout() {
 
   return (
     <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen name="(tabs)" options={{ 
+        headerShown: false,
+        contentStyle: {
+          backgroundColor: Colors.background,
+        },
+      }} />
+      <Stack.Screen
+        name="profile"
+        options={{ 
+          headerTitle: " ",
+          headerBackTitle: " ",
+          headerShadowVisible: false,
+          headerStyle: { 
+            backgroundColor: Colors.background,
+          },
+          headerLeft: () => (
+            <TouchableOpacity onPress={router.back}>
+              <Ionicons name="arrow-back" size={24} color='gray' />
+            </TouchableOpacity>
+          ),
+          contentStyle: {
+            backgroundColor: Colors.background,
+          },
+        }}
+      />
       <Stack.Screen name="(auth)" options={{ headerShown: false }} />
       <Stack.Screen name="+not-found" />
     </Stack>

@@ -18,7 +18,7 @@ const Profile = () => {
         </TouchableOpacity>
       </View>
 
-      <ScrollView className="flex-1 bg-background pt-6 px-4">
+      <ScrollView className="flex-1 px-4">
         {/* Profile Header - Spans Full Width */}
         <View className="bg-primary/5 p-4 rounded-xl mb-3">
           <View className="flex-row items-center gap-4">

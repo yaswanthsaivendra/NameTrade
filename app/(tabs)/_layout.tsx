@@ -2,7 +2,7 @@ import { Tabs } from "expo-router";
 import React from "react";
 import TabBar from "../../components/TabBar";
 import { useUI } from "../../context/UIContext";
-import { View } from "react-native";
+
 
 const TabsLayout = () => {
   const { isTabBarVisible } = useUI();
@@ -31,9 +31,9 @@ const TabsLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="profile"
+        name="manage"
         options={{
-          title: "Profile",
+          title: "Manage",
           headerShown: false,
         }}
       />
