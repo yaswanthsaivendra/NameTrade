@@ -1,11 +1,17 @@
-import { Tabs } from "expo-router";
+import { Tabs, Redirect } from "expo-router";
 import React from "react";
 import TabBar from "../../components/TabBar";
 import { useUI } from "../../context/UIContext";
-
+import { useAuth } from '@clerk/clerk-expo';
 
 const TabsLayout = () => {
   const { isTabBarVisible } = useUI();
+  const { isSignedIn } = useAuth();
+
+  // Redirect to sign-in if not authenticated
+  if (!isSignedIn) {
+    return <Redirect href="/sign-in" />;
+  }
 
   return (
     <Tabs tabBar={(props) => (isTabBarVisible ? <TabBar {...props} /> : null)}>

@@ -3,8 +3,22 @@ import React from 'react'
 import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+import { useAuth } from '@clerk/clerk-expo';
+import { useRouter } from 'expo-router';
 
 const Manage = () => {
+  const { signOut } = useAuth();
+  const router = useRouter();
+
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+      router.replace('/sign-in');
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
+  };
+
   return (
     <View className='flex-1 bg-background pt-6 px-4'>
       {/* Profile Section */}
@@ -113,6 +127,17 @@ const Manage = () => {
               </TouchableOpacity>
             ))}
           </View>
+
+          {/* Logout Button */}
+          <TouchableOpacity 
+            onPress={handleSignOut}
+            className="bg-red-500/20 p-4 rounded-xl mb-8"
+          >
+            <View className="flex-row items-center justify-center gap-2">
+              <Feather name="log-out" size={24} color="#ef4444" />
+              <Text className="text-red-500 text-lg font-semibold">Sign Out</Text>
+            </View>
+          </TouchableOpacity>
 
           {/* App Version Info */}
           <View className="items-center mb-8">

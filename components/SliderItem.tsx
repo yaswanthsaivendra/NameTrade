@@ -51,9 +51,7 @@ const SliderItem = ({ item, index }: SliderItemProps) => {
                 </View>
             </View>
         </View>
-      </View>
-    </View>
-  );
+    );
 };
 
 export default SliderItem;
