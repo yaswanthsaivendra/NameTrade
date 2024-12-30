@@ -1,86 +1,6 @@
-// import React from "react";
-// import { View, Text, Dimensions } from "react-native";
-// import { LineChart, LineChartProvider } from "react-native-wagmi-charts";
-
-// interface TradeData {
-//   timestamp: number;
-//   value: number;
-//   type: "buy" | "sell";
-// }
-
-// const TradingHistoryChart: React.FC = () => {
-//   // Sample data - replace with your actual chartData
-//   const data: TradeData[] = [
-//     { timestamp: 1641024000000, value: 2000, type: "buy" }, // Jan 1
-//     { timestamp: 1641369600000, value: 2200, type: "sell" }, // Jan 5
-//     { timestamp: 1641801600000, value: 1800, type: "buy" }, // Jan 10
-//     { timestamp: 1642233600000, value: 2500, type: "sell" }, // Jan 15
-//     { timestamp: 1642665600000, value: 2300, type: "buy" }, // Jan 20
-//     { timestamp: 1643097600000, value: 2800, type: "sell" }, // Jan 25
-//   ];
-
-//   // Transform data for the chart
-//   const chartData = data.map((item) => ({
-//     timestamp: item.timestamp,
-//     value: item.value,
-//   }));
-
-//   return (
-//     <View className="bg-gray-400/5 p-4 rounded-2xl">
-//       <LineChartProvider data={chartData}>
-//         <View style={{ height: 200 }}>
-//           <LineChart height={200}>
-//             <LineChart.Path color="#42DBF0" width={2} />
-//             <LineChart.CursorCrosshair color="#42DBF0" />
-//             <LineChart.Gradient />
-//           </LineChart>
-
-//           {/* Transaction Points */}
-//           {data.map((item, index) => (
-//             <View
-//               key={index}
-//               style={{
-//                 position: "absolute",
-//                 left:
-//                   (index / (data.length - 1)) *
-//                   (Dimensions.get("window").width - 80),
-//                 top:
-//                   200 -
-//                   ((item.value - Math.min(...data.map((d) => d.value))) /
-//                     (Math.max(...data.map((d) => d.value)) -
-//                       Math.min(...data.map((d) => d.value)))) *
-//                     180,
-//               }}
-//             >
-//               <View
-//                 className={`w-3 h-3 rounded-full ${
-//                   item.type === "buy" ? "bg-green-500" : "bg-[#ff4444]"
-//                 }`}
-//               />
-//             </View>
-//           ))}
-//         </View>
-//       </LineChartProvider>
-
-//       {/* Legend */}
-//       <View className="flex-row justify-center space-x-6 mt-6">
-//         <View className="flex-row items-center">
-//           <View className="w-3 h-3 rounded-full bg-green-500 mr-2" />
-//           <Text className="text-white">Buy</Text>
-//         </View>
-//         <View className="flex-row items-center">
-//           <View className="w-3 h-3 rounded-full bg-[#ff4444] mr-2" />
-//           <Text className="text-white">Sell</Text>
-//         </View>
-//       </View>
-//     </View>
-//   );
-// };
-
-// export default TradingHistoryChart;
-
 import React from "react";
 import { View, Text, Dimensions } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LineChart, LineChartProvider } from "react-native-wagmi-charts";
 
@@ -113,7 +33,7 @@ const TradingHistoryChart: React.FC = () => {
   const yAxisLabels = [0, 5000, 10000, 15000, 20000];
 
   return (
-    <SafeAreaView className="bg-gray-400/5 rounded-3xl p-6">
+    <View className="bg-gray-400/5 rounded-3xl p-6">
       {/* Header */}
       <View className="flex-row justify-between mb-4">
         <Text className="text-2xl font-bold text-white">Trend</Text>
@@ -143,7 +63,6 @@ const TradingHistoryChart: React.FC = () => {
 
         {/* Chart */}
         <View style={{ width: windowWidth - 40 }}>
-          {" "}
           {/* Subtract Y-axis width */}
           <LineChartProvider data={chartData}>
             <LineChart height={180}>
@@ -199,7 +118,7 @@ const TradingHistoryChart: React.FC = () => {
           </Text>
         ))}
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

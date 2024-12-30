@@ -111,7 +111,7 @@ const Profile = () => {
           My Trading History
         </Text>
         {/* TRADING HISTORY CHART THAT WILL SHOW THE PURCHASE AND SELLING OF THE DOMAINS WITH A POINTER ON A DOTTED LINE GRAPH, WITH TIME ON X-AXIS AND MONEY ON Y-AXIS. */}
-        <TradingHistoryChart />
+        {/* <TradingHistoryChart /> */}
       </View>
     </SafeAreaView>
   );
