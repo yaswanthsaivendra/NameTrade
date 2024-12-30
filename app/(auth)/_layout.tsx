@@ -1,12 +1,23 @@
-import { Text, View } from 'react-native'
-import React from 'react'
+import * as React from 'react'
+import { Redirect, Stack } from 'expo-router'
+import { useAuth } from '@clerk/clerk-expo'
+import * as WebBrowser from 'expo-web-browser';
+import { useWarmUpBrowser } from "@/hooks/useWarmUpBrowser"
 
-const HomeLayout = () => {
-  return (
-    <View>
-      <Text>Home Layout</Text>
-    </View>
-  )
+WebBrowser.maybeCompleteAuthSession();
+
+export default function AuthRoutesLayout() {
+  const { isSignedIn } = useAuth()
+
+  useWarmUpBrowser();
+
+  if (isSignedIn) {
+    return <Redirect href={'/'} />
+  }
+
+  return <Stack 
+    screenOptions={{
+      headerShown: false,
+    }}
+  />
 }
-
-export default HomeLayout;

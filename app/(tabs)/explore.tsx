@@ -16,10 +16,12 @@ import { useUI } from "../../context/UIContext";
 
 // Mock data for demonstration
 const mockResults = [
-  { domain: "example.com", seller: "John Doe", price: 299 },
-  { domain: "business.net", seller: "Jane Smith", price: 499 },
-  { domain: "startup.io", seller: "Mike Johnson", price: 899 },
-  { domain: "tech.dev", seller: "Sarah Williams", price: 399 },
+  { domain: "maxsmith.com", seller: "John Doe", price: 299 },
+  { domain: "maxsmith.ai", seller: "Jane Smith", price: 499 },
+  { domain: "maxsmith.art", seller: "Mike Johnson", price: 899 },
+  { domain: "maxsmith.tech", seller: "Sarah Williams", price: 34.99 },
+  { domain: "maxsmith.online", seller: "Sarah Williams", price: 399 },
+  { domain: "maxsmith.io", seller: "Sarah Williams", price: 44.98 },
 ];
 
 const recentSearches = ["crypto.com", "nft.io", "meta.com", "web3.io"];
@@ -133,7 +135,7 @@ const Explore = () => {
                         {item.domain}
                       </Text>
                       <View className="flex-row items-center gap-2">
-                        {index % 2 === 0 ? (
+                        {index % 2 !== 0 ? (
                           <View className="bg-green-500/20 px-2 py-0.5 rounded">
                             <Text className="text-green-500 text-xs">
                               Available

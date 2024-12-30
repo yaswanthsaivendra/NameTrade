@@ -110,7 +110,7 @@ const HomeScreen = () => {
                 className="border-2 border-primary p-1 rounded-full"
               >
                 <Image
-                  source={require("@/assets/images/profile.png")}
+                  source={{ uri: "https://avatars.githubusercontent.com/u/6?v=4" }}
                   className="w-14 h-14 rounded-full"
                 />
               </TouchableOpacity>
@@ -163,7 +163,7 @@ const HomeScreen = () => {
         </View>
 
         <View className="flex-1">
-        {/* Featured Domain */}
+          {/* Featured Domain */}
           <View className="mt-4 mx-4">
             <Text className="text-white text-xl font-bold mb-2">
               Featured Domains

@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, Dimensions } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { View, Text, Dimensions } from "react-native";
 import { LineChart, LineChartProvider } from "react-native-wagmi-charts";
 
 interface TradeData {
@@ -30,24 +31,13 @@ const TradingHistoryChart: React.FC = () => {
 
   // Calculate Y-axis labels
   const maxValue = Math.max(...data.map((d) => d.value));
-  const yAxisLabels = [0, 5000, 10000, 15000, 20000];
+  const yAxisLabels = [20000, 15000, 10000, 5000, 0];
 
   return (
     <View className="bg-gray-400/5 rounded-3xl p-6">
       {/* Header */}
-      <View className="flex-row justify-between mb-4">
+      <View className="mb-4">
         <Text className="text-2xl font-bold text-white">Trend</Text>
-        <View className="flex-row space-x-3">
-          <View className="bg-primary px-4 py-1 rounded-full">
-            <Text className="text-black font-bold">High</Text>
-          </View>
-          <View className="px-4 py-1">
-            <Text className="text-white font-bold">Medium</Text>
-          </View>
-          <View className="px-4 py-1">
-            <Text className="text-white font-bold">Low</Text>
-          </View>
-        </View>
       </View>
 
       {/* Chart Container */}
@@ -62,18 +52,16 @@ const TradingHistoryChart: React.FC = () => {
         </View>
 
         {/* Chart */}
-        <View style={{ width: windowWidth - 40 }}>
-          {/* Subtract Y-axis width */}
+        <View style={{ width: windowWidth - 60 }}>
           <LineChartProvider data={chartData}>
-            <LineChart height={180}>
-              {/* Grid Lines */}
+            <LineChart height={180} width={windowWidth - 50}>
               {yAxisLabels.map((_, index) => (
                 <View
                   key={index}
-                  className="border-t border-dotted border-gray-200"
+                  className="border-t border-dotted border-gray-200/20"
                   style={{
                     position: "absolute",
-                    width: "100%",
+                    width: "104%",
                     top: index * (180 / (yAxisLabels.length - 1)),
                   }}
                 />
@@ -93,7 +81,7 @@ const TradingHistoryChart: React.FC = () => {
                 key={index}
                 style={{
                   position: "absolute",
-                  left: (index / (data.length - 1)) * (windowWidth - 40),
+                  left: (index / (data.length - 1)) * (windowWidth - 60),
                   top: 180 - (item.value / maxValue) * 180,
                 }}
               >
