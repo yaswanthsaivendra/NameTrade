@@ -1,8 +1,5 @@
 import React from "react";
 import { View, Text, Dimensions } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { View, Text, Dimensions } from "react-native";
 import { LineChart, LineChartProvider } from "react-native-wagmi-charts";
 
 interface TradeData {
